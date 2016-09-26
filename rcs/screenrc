@@ -39,7 +39,7 @@ defscrollback 11024
 # SCREEN KEYBINDINGS
 # ------------------------------------------------------------------------------
 #replace key command
-escape ^q^q
+escape ``
 # Remove some stupid / dangerous key bindings
 bind ^k
 #bind L
