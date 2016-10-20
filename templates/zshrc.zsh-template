@@ -83,16 +83,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias trash="trash_func"
-#implement trash_func
-function trash_func {
-RM_BIN=mv # you can replace it with regular rm if you like
-files="$@"
-trash_dir=~/.Trash
-
-#for var in "$@"
-#do
-#    files+=" $var"
-#done
-${RM_BIN}  ${files} ${trash_dir}
-}
