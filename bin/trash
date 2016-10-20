@@ -1,0 +1,7 @@
+#trash command, move files or directory to ~/.Trash
+if [ -d ~/.Trash]; then
+    mkdir ~/.Trash > /dev/null
+fi
+
+files="$@"
+mv ${files} ~/.Trash

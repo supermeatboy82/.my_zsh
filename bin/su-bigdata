@@ -1,0 +1,12 @@
+#!/usr/bin/expect
+set pass "DV3wFjFbhYK1m"
+set user "bigdata-ms"
+spawn su ${user}
+expect {
+    -re "Password" { send "${pass}\r" ; }
+    }
+expect "bigdata-ms@"
+send "clear\r"
+#send "echo 'ok'\r"
+interact
+
