@@ -1,7 +1,20 @@
 #trash command, move files or directory to ~/.Trash
-if [ -d ~/.Trash]; then
+if [ -d "~/.Trash" ]; then
     mkdir ~/.Trash > /dev/null
 fi
 
-files="$@"
-mv ${files} ~/.Trash
+for path in "$@"; do
+# ignore any arguments
+if [[ "$path" = -* ]]; then :
+else
+  # remove trailing slash
+  mindtrailingslash=${path%/}
+  # remove preceding directory path
+  dst=${mindtrailingslash##*/}
+  # append the time if necessary
+  while [ -e ~/.Trash/"$dst" ]; do
+    dst="`expr "$dst" : '\(.*\)\.[^.]*'` `date +%H-%M-%S`.`expr "$dst" : '.*\.\([^.]*\)'`"
+  done
+  mv "$path" ~/.Trash/"$dst"
+fi
+done
