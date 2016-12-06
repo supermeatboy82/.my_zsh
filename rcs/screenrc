@@ -116,3 +116,6 @@ defnonblock 5
 #兼容shell 使得.bashrc .profile /etc/profile等里面的别名等设置生效
 shell -$SHELL
 defshell -zsh
+#支持中文
+defencoding GBK
+encoding UTF-8 GBK

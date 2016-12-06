@@ -1,0 +1,5 @@
+#! /usr/bin/expect
+spawn script /dev/null
+expect -re ".*\$"
+send "screen -c ~/.screenrc_szh -RR\r"
+interact
